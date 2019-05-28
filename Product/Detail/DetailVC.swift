@@ -19,11 +19,12 @@ class DetailVC: UIViewController, LoadImageService {
     var index: Int
     var delegate: UpdateImageDelegate?
     
-    init(product: Product, index: Int, delegate: UpdateImageDelegate?) {
+    init(title: String, product: Product, index: Int, delegate: UpdateImageDelegate?) {
         self.product = product
         self.index = index
         self.delegate = delegate
         super.init(nibName: "DetailVC", bundle: nil)
+        self.title = title
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("required init?(coder aDecoder: NSCoder not implemented")

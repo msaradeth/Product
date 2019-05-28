@@ -12,7 +12,6 @@ import UIKit
 
 protocol ListViewModelDelegate: LoadImageService {
     func loadTumbnailImage(index: Int, completion: @escaping (UIImage?) -> Void)
-//    func loadImage(index: Int, completion: @escaping (UIImage?) -> Void)
     func loadFavorite(index: Int) -> Bool
     func toggleFavorite(index: Int) -> Bool
 }
@@ -20,13 +19,24 @@ protocol ListViewModelDelegate: LoadImageService {
 
 class ListViewModel: NSObject {
     var items: [Product]
+    var favoriteItems: [Product] {
+        return items.filter{ ($0.isFavorite ?? false) == true }
+    }
+    var count: Int {
+        return selectedSegmentIndex == 0 ? items.count : favoriteItems.count
+    }
     var productService: ProductService
+    var selectedSegmentIndex: Int = 0
     
     init(items: [Product], productService: ProductService) {
         self.items = items
         self.productService = productService
     }
     
+
+    subscript(index: Int) -> Product {
+        return selectedSegmentIndex == 0 ? items[index] : favoriteItems[index]
+    }
     
     func loadData(completion: @escaping() -> Void) {
         productService.loadData { [weak self] (items) in
@@ -45,13 +55,6 @@ extension ListViewModel: ListViewModelDelegate {
             completion(image)
         }
     }
-    
-//    func loadImage(index: Int, completion: @escaping (UIImage?) -> Void) {
-//        loadImage(urlString: items[index].imageUrlString) { [weak self] (image) in
-//            self?.items[index].image = image
-//            completion(image)
-//        }
-//    }
     
     func loadFavorite(index: Int) -> Bool {
         let isFavorite = items[index].loadFavorite()

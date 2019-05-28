@@ -15,10 +15,18 @@ protocol UpdateImageDelegate {
 class ListVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var viewModel: ListViewModel
+    var segmentedControl: UISegmentedControl
     
-    init(viewModel: ListViewModel) {
+    init(title: String, viewModel: ListViewModel) {
         self.viewModel = viewModel
+        self.segmentedControl = UISegmentedControl(items:  ["All", "Favorites"])
+        self.segmentedControl.selectedSegmentIndex = 0
         super.init(nibName: "ListVC", bundle: nil)
+        
+        //set title and navigationItem.titleView and add segmentedControl target
+        self.segmentedControl.addTarget(self, action: #selector(selectedSegment(sender:)), for: .valueChanged)
+        self.title = title
+        self.navigationItem.titleView = segmentedControl
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("required init?(coder aDecoder: NSCoder) not implemented")
@@ -43,6 +51,11 @@ class ListVC: UIViewController {
         tableView.rowHeight = 90
         tableView.tableFooterView = UIView(frame: .zero)
     }
+    
+    @objc func selectedSegment(sender: UISegmentedControl) {
+        viewModel.selectedSegmentIndex = sender.selectedSegmentIndex
+        tableView.reloadData()
+    }
 
 }
 
@@ -55,11 +68,11 @@ extension ListVC: UpdateImageDelegate {
 
 extension ListVC: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.items.count
+        return viewModel.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.cellIdentifier, for: indexPath) as! ListCell
-        cell.configure(item: viewModel.items[indexPath.row], index: indexPath.row, delegate: viewModel)
+        cell.configure(item: viewModel[indexPath.row], index: indexPath.row, delegate: viewModel)
         
         return cell
     }
@@ -67,9 +80,9 @@ extension ListVC: UITableViewDataSource {
 
 extension ListVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        let detailVC = DetailVC(product: viewModel.items[indexPath.row], index: indexPath.row, delegate: self)
+        tableView.deselectRow(at: indexPath, animated: true)        
+        let product = viewModel[indexPath.row]
+        let detailVC = DetailVC(title: product.name, product: product, index: indexPath.row, delegate: self)
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }

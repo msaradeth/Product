@@ -37,7 +37,8 @@ class ListCell: UITableViewCell {
         if let isFavorite = item.isFavorite {
             favoriteImage.image = isFavorite ? favorite : notFavorite
         }else {
-            favoriteImage.image = item.loadFavorite()  ? favorite : notFavorite
+            let isFavorite = delegate?.loadFavorite(index: index) ?? false
+            favoriteImage.image = isFavorite ? favorite : notFavorite
         }
         
         

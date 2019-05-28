@@ -132,21 +132,14 @@
 		5E6D0F52229DA0FB0071104E /* Product */ = {
 			isa = PBXGroup;
 			children = (
+				5E6D0F99229DFC7D0071104E /* Model */,
+				5E6D0F97229DFAEC0071104E /* List */,
+				5E6D0F98229DFB020071104E /* Detail */,
+				5E6D0F9A229DFC8F0071104E /* Common */,
 				5E6D0F53229DA0FB0071104E /* AppDelegate.swift */,
 				5E6D0F5A229DA0FC0071104E /* Assets.xcassets */,
 				5E6D0F5C229DA0FC0071104E /* LaunchScreen.storyboard */,
 				5E6D0F5F229DA0FC0071104E /* Info.plist */,
-				5E6D0F81229DA14D0071104E /* ProductService.swift */,
-				5E6D0F83229DA2790071104E /* Product.swift */,
-				5E6D0F8F229DB0C70071104E /* HttpHelp.swift */,
-				5E6D0F85229DA5FB0071104E /* ListVC.swift */,
-				5E6D0F86229DA5FB0071104E /* ListVC.xib */,
-				5E6D0F8B229DA8AA0071104E /* ListCell.swift */,
-				5E6D0F8C229DA8AA0071104E /* ListCell.xib */,
-				5E6D0F89229DA6630071104E /* ListViewModel.swift */,
-				5E6D0F91229DE6D00071104E /* Protocols.swift */,
-				5E6D0F93229DEA280071104E /* DetailVC.swift */,
-				5E6D0F94229DEA280071104E /* DetailVC.xib */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -167,6 +160,45 @@
 				5E6D0F75229DA0FC0071104E /* Info.plist */,
 			);
 			path = ProductUITests;
+			sourceTree = "<group>";
+		};
+		5E6D0F97229DFAEC0071104E /* List */ = {
+			isa = PBXGroup;
+			children = (
+				5E6D0F85229DA5FB0071104E /* ListVC.swift */,
+				5E6D0F86229DA5FB0071104E /* ListVC.xib */,
+				5E6D0F8B229DA8AA0071104E /* ListCell.swift */,
+				5E6D0F8C229DA8AA0071104E /* ListCell.xib */,
+				5E6D0F89229DA6630071104E /* ListViewModel.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		5E6D0F98229DFB020071104E /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				5E6D0F93229DEA280071104E /* DetailVC.swift */,
+				5E6D0F94229DEA280071104E /* DetailVC.xib */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		5E6D0F99229DFC7D0071104E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5E6D0F83229DA2790071104E /* Product.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5E6D0F9A229DFC8F0071104E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5E6D0F81229DA14D0071104E /* ProductService.swift */,
+				5E6D0F8F229DB0C70071104E /* HttpHelp.swift */,
+				5E6D0F91229DE6D00071104E /* Protocols.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		6A2FC9B2D9C1B3ED4FA61EA6 /* Frameworks */ = {

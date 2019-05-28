@@ -19,11 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let productService = ProductService()
         let items = [Product]()
         let viewModel = ListViewModel(items: items, productService: productService)
-        let vc = ListVC(viewModel: viewModel)
+        let vc = ListVC(title: "Products", viewModel: viewModel)
+        let navController = UINavigationController(rootViewController: vc)
+        navController.navigationBar.prefersLargeTitles = true
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: vc)
+        window?.rootViewController = navController
         
         return true
     }
