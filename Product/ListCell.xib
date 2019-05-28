@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="160" id="KGk-i7-Jjw" customClass="ListCell" customModule="Product" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="616" height="160"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="616" height="159.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sko-3M-3ss">
+                        <rect key="frame" x="8" y="50" width="35" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="35" id="113-5U-6po"/>
+                            <constraint firstAttribute="height" constant="60" id="3HG-DZ-SBR"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3fJ-u3-gKw">
+                        <rect key="frame" x="548" y="0.0" width="60" height="159.5"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="notFavorite" translatesAutoresizingMaskIntoConstraints="NO" id="jcS-oT-cdn">
+                                <rect key="frame" x="10" y="60" width="40" height="40"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="5v8-pK-mpJ"/>
+                                    <constraint firstAttribute="width" constant="40" id="md0-mB-Nbo"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jcS-oT-cdn" firstAttribute="centerX" secondItem="3fJ-u3-gKw" secondAttribute="centerX" id="Its-Id-wXp"/>
+                            <constraint firstItem="jcS-oT-cdn" firstAttribute="centerY" secondItem="3fJ-u3-gKw" secondAttribute="centerY" id="gFF-e0-tJz"/>
+                            <constraint firstAttribute="width" constant="60" id="tOd-lc-IfI"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGw-H7-FKN">
+                        <rect key="frame" x="51" y="50" width="35.5" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="GzI-Or-8lN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nky-pC-lvv">
+                        <rect key="frame" x="51" y="75" width="38.5" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="eHJ-p0-pBa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Sko-3M-3ss" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="HTy-dO-5Qe"/>
+                    <constraint firstItem="3fJ-u3-gKw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Ns5-o0-QgW"/>
+                    <constraint firstAttribute="trailing" secondItem="3fJ-u3-gKw" secondAttribute="trailing" constant="8" id="TCs-L6-jgs"/>
+                    <constraint firstItem="nky-pC-lvv" firstAttribute="leading" secondItem="Sko-3M-3ss" secondAttribute="trailing" constant="8" id="TV1-hF-g4d"/>
+                    <constraint firstItem="OGw-H7-FKN" firstAttribute="leading" secondItem="Sko-3M-3ss" secondAttribute="trailing" constant="8" id="ViN-X1-ite"/>
+                    <constraint firstAttribute="bottom" secondItem="3fJ-u3-gKw" secondAttribute="bottom" id="Vx5-ef-5Ch"/>
+                    <constraint firstItem="OGw-H7-FKN" firstAttribute="top" secondItem="Sko-3M-3ss" secondAttribute="top" id="jWk-k0-NZ6"/>
+                    <constraint firstItem="Sko-3M-3ss" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="spN-pB-dJw"/>
+                    <constraint firstItem="nky-pC-lvv" firstAttribute="top" secondItem="OGw-H7-FKN" secondAttribute="bottom" id="tM1-NU-fxG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="favoriteContainerView" destination="3fJ-u3-gKw" id="IJu-OA-Bi9"/>
+                <outlet property="favoriteImage" destination="jcS-oT-cdn" id="HYW-94-q14"/>
+                <outlet property="priceLabel" destination="nky-pC-lvv" id="4Wr-yL-MZY"/>
+                <outlet property="productName" destination="OGw-H7-FKN" id="Fkg-e1-VUW"/>
+                <outlet property="tumbnailImage" destination="Sko-3M-3ss" id="W06-3C-7dk"/>
+            </connections>
+            <point key="canvasLocation" x="123.18840579710145" y="8.0357142857142847"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="notFavorite" width="100" height="100"/>
+    </resources>
+</document>
