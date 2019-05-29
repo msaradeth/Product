@@ -29,13 +29,25 @@ class ProductService: NSObject {
     }
     
     func loadData(completion: @escaping ([Product]) -> Void) {
-        loadDataWithURLSession(completion: completion)
+        loadDataFromJSONFile(completion: completion)
+//        loadDataWithURLSession(completion: completion)
+    }
+
+    
+    func loadDataFromJSONFile(completion: @escaping ([Product]) -> Void) {
+        guard let fileURLWithPath = Bundle.main.url(forResource: "product_list", withExtension: "json") else { return }
+        do {
+            let data = try Data(contentsOf: fileURLWithPath)
+            let decoder = JSONDecoder()
+            let pods = try decoder.decode(PodsService.self, from: data)
+            completion(pods.products)
+        }catch {
+            fatalError(error.localizedDescription)
+        }
     }
     
-    
-    
     func loadDataWithURLSession(completion: @escaping ([Product]) -> Void) {
-        guard let url = URL(string: urlString) else { completion([]); return }
+        guard let url = URL(string: urlString) else { return }
         
         //Get URLSession instance and query server with URL
         let session = URLSession.shared
@@ -45,7 +57,7 @@ class ProductService: NSObject {
             }
             
             guard let data = data,
-                let response = response as? HTTPURLResponse else { completion([]); return }
+                let response = response as? HTTPURLResponse else { return }
             do {
                 let decoder = JSONDecoder()
                 let pods = try decoder.decode(PodsService.self, from: data)

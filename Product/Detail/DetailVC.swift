@@ -18,6 +18,7 @@ class DetailVC: UIViewController, LoadImageService {
     var product: Product
     var index: Int
     var delegate: UpdateImageDelegate?
+    var callbackWithImageClosure: ((UIImage?) -> Void)?
     
     init(title: String, product: Product, index: Int, delegate: UpdateImageDelegate?) {
         self.product = product
@@ -47,6 +48,7 @@ class DetailVC: UIViewController, LoadImageService {
                     DispatchQueue.main.async {
                         self.imageView.image = image
                         self.delegate?.updateImage(index: self.index, image: image)
+                        self.callbackWithImageClosure?(image)
                     }
                 }
             }
