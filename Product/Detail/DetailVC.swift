@@ -36,8 +36,8 @@ class DetailVC: UIViewController, LoadImageService {
         super.viewDidLoad()
     
         self.name.text = self.product.name
-        self.descriptionLabel.text = self.product.description
-        self.priceLabel.text = self.product.price.description
+        self.descriptionLabel.text = product.description
+        self.priceLabel.text = "$" + String(product.price / 100.0)
         
         if let image = product.image {
             imageView.image = image

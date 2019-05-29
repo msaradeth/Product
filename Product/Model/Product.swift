@@ -14,7 +14,7 @@ struct Product: Codable {
     var id: String
     var name: String
     var description: String
-    var price: Decimal
+    var price: Double
     var thumbnailUrlString: String
     var imageUrlString: String
     

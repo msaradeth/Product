@@ -27,7 +27,7 @@ class ListCell: UITableViewCell {
         self.delegate = delegate
         
         productName.text = item.name
-        priceLabel.text = item.price.description
+        priceLabel.text = "$" + String(item.price / 100.0)
         
         //add toggle tapgesture to favorite image
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(toggleFavorite))
