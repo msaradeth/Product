@@ -82,10 +82,14 @@ extension ListVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)        
         let product = viewModel[indexPath.row]
-        let detailVC = DetailVC(title: product.name, product: product, index: indexPath.row, delegate: self)
-        detailVC.callbackWithImageClosure = { [weak self] (image) in
+        let detailViewModel = DetailViewModel(product: product, index: indexPath.row, delegate: self)
+        detailViewModel.callbackWithImageClosure = { [weak self] (image) in
             self?.viewModel.items[indexPath.row].image = image
         }
+
+        
+        let detailVC = DetailVC(title: product.name, viewModel: detailViewModel)
+
         self.navigationController?.pushViewController(detailVC, animated: true)
     }
 }
